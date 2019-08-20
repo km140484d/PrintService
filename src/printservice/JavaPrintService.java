@@ -58,7 +58,7 @@ public class JavaPrintService
                         } else {
                             try {
                                 PrintService printService = PrintServiceLookup.lookupDefaultPrintService();
-                                try (InputStream is = new ByteArrayInputStream(line.getBytes("UTF8"))) {
+                                try (InputStream is = new ByteArrayInputStream((line+ "\f").getBytes("UTF8"))) {
                                     PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
                                     pras.add(new Copies(1));
 //                                pras.add(MediaName.ISO_A4_WHITE);
